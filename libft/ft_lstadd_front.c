@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oel-asri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 21:40:51 by oel-asri          #+#    #+#             */
-/*   Updated: 2023/10/30 21:42:04 by oel-asri         ###   ########.fr       */
+/*   Created: 2023/11/05 21:40:03 by oel-asri          #+#    #+#             */
+/*   Updated: 2023/11/05 22:24:25 by oel-asri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
+#include "libft.h"
+
+/**
+ * ft_lstadd_front - add new node in the front of the list
+ * @lst:  The address of a pointer to the first link of a list
+ * @new: The address of a pointer to the node to be added to the list
+*/
+
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	else if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	if (!new)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }

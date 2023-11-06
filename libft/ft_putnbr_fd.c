@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oel-asri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 21:40:51 by oel-asri          #+#    #+#             */
-/*   Updated: 2023/10/30 21:42:04 by oel-asri         ###   ########.fr       */
+/*   Created: 2023/11/04 15:11:32 by oel-asri          #+#    #+#             */
+/*   Updated: 2023/11/04 15:59:42 by oel-asri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
+#include "libft.h"
+
+void	ft_putnbr_fd(int n, int fd)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	else if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	long int	num;
+	char		sign;
+
+	num = n;
+	sign = '-';
+	if (num < 0)
+	{
+		num *= -1;
+		ft_putchar_fd('-', fd);
+	}
+	if (num >= 10)
+		ft_putnbr_fd((int)(num / 10), fd);
+	ft_putchar_fd((num % 10) + '0', fd);
 }
