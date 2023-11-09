@@ -6,9 +6,17 @@
 /*   By: oel-asri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 21:40:51 by oel-asri          #+#    #+#             */
-/*   Updated: 2023/10/30 21:42:04 by oel-asri         ###   ########.fr       */
+/*   Updated: 2023/11/09 05:02:49 by oel-asri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
+
+/**
+ * ft_isalnum - check if the char is alphanumeric
+ * @c: charactere to be checked
+ * @Return: 1 if c is alphanumeric, otherwise 0
+*/
 
 int	ft_isalnum(int c)
 {

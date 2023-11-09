@@ -6,7 +6,7 @@
 /*   By: oel-asri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 16:43:33 by oel-asri          #+#    #+#             */
-/*   Updated: 2023/11/03 19:06:39 by oel-asri         ###   ########.fr       */
+/*   Updated: 2023/11/09 05:26:45 by oel-asri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t	len;
 	char	*result;
 
-	if (!s)
+	if (!s || !f)
 		return (NULL);
 	len = ft_strlen(s);
 	result = (char *)malloc(sizeof(char) * (len + 1));

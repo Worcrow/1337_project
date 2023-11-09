@@ -6,11 +6,18 @@
 /*   By: oel-asri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 02:19:03 by oel-asri          #+#    #+#             */
-/*   Updated: 2023/11/05 19:27:40 by oel-asri         ###   ########.fr       */
+/*   Updated: 2023/11/09 05:01:19 by oel-asri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/**
+ * ft_calloc - allocate space for count of type size
+ * @count: number of contiguous block to be allocated
+ * @size: size of each block
+ * @Return: pointer to the address allocated or Null if fails
+*/
 
 void	*ft_calloc(size_t count, size_t size)
 {

@@ -6,11 +6,17 @@
 /*   By: oel-asri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 01:25:52 by oel-asri          #+#    #+#             */
-/*   Updated: 2023/11/02 02:17:36 by oel-asri         ###   ########.fr       */
+/*   Updated: 2023/11/09 04:27:40 by oel-asri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/**
+ * ft_atoi - convert the initial portion of string to integer
+ * @str: string to be converted
+ * @Return: an integer
+*/
 
 int	ft_atoi(const char *str)
 {

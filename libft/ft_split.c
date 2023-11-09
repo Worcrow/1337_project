@@ -6,7 +6,7 @@
 /*   By: oel-asri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 01:00:14 by oel-asri          #+#    #+#             */
-/*   Updated: 2023/11/05 19:24:29 by oel-asri         ###   ########.fr       */
+/*   Updated: 2023/11/09 04:19:33 by oel-asri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,26 +100,22 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	result = (char **) malloc(sizeof(char *) * (count_words(s, c) + 1));
-	if (!result)
-		return (NULL);
 	i = 0;
 	j = 0;
-	while (s[i] != '\0')
+	while (result && s[i] != '\0')
 	{
-		if (s[i] == c)
-		{
-			i++;
+		if (s[i++] == c)
 			continue ;
-		}
 		result[j] = (char *) malloc(sizeof(char) * \
-				(count_to_deli(s + i, c) + 1));
+				(count_to_deli(s + i - 1, c) + 1));
 		if (!result[j])
 		{
 			free_mem(result, j);
 			return (0);
 		}
-		i += copy_to(result[j++], s + i, count_to_deli(s + i, c));
+		i += copy_to(result[j++], s + i - 1, count_to_deli(s + i - 1, c)) - 1;
 	}
-	result[j] = NULL;
+	if (result)
+		result[j] = NULL;
 	return (result);
 }

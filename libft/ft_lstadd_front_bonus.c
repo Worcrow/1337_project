@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oel-asri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 19:57:55 by oel-asri          #+#    #+#             */
-/*   Updated: 2023/11/05 22:08:55 by oel-asri         ###   ########.fr       */
+/*   Created: 2023/11/05 21:40:03 by oel-asri          #+#    #+#             */
+/*   Updated: 2023/11/09 05:11:56 by oel-asri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /**
- * ft_lstnew - create a new node
- * @content: content to be assigned 
- * 			to the node content variable
- * Return: address of the new node
+ * ft_lstadd_front - add new node in the front of the list
+ * @lst:  The address of a pointer to the first link of a list
+ * @new: The address of a pointer to the node to be added to the list
 */
 
-t_list	*ft_lstnew(void *content)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	*new_node;
-
-	new_node = (t_list *) malloc(sizeof(t_list));
-	if (new_node)
-	{
-		new_node->content = content;
-		new_node->next = NULL;
-	}
-	return (new_node);
+	if (!new || !lst)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }
