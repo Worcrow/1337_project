@@ -14,7 +14,11 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
+<<<<<<< HEAD
 	while (*s1 != '\0' && *s2 != '\0' && \
+=======
+	while (s1 && s2 && *s1 != '\0' && *s2 != '\0' && \
+>>>>>>> 8cd04835dc13ae6404bc6dc50d2a993f801b8127
 			*s1 == *s2 && n > 0)
 	{
 		s1++;

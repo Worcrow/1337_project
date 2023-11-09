@@ -15,10 +15,8 @@
 void	ft_putnbr_fd(int n, int fd)
 {
 	long int	num;
-	char		sign;
 
 	num = n;
-	sign = '-';
 	if (num < 0)
 	{
 		num *= -1;
