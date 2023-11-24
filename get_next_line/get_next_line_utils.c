@@ -31,7 +31,7 @@ int	starting_index(char *buffer)
 	int	i;
 
 	i = 0;
-	while (buffer[i] == 0 && i < BUFFER_SIZE)
+	while (i < BUFFER_SIZE && buffer[i] == 0)
 		i++;
 	return (i);
 }
@@ -43,12 +43,13 @@ size_t	count_size(char *buffer)
 
 	len = 0;
 	i = starting_index(buffer);
-	if (i == BUFFER_SIZE)
+	if (i >= BUFFER_SIZE)
 		return (-1);
-	while (buffer[i] != '\n' && i < BUFFER_SIZE)
+	while (i < BUFFER_SIZE && buffer[i] != '\n')
 	{
 		len++;
 		i++;
 	}
+	len++;
 	return (len);
 }

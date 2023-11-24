@@ -33,9 +33,11 @@ char	*get_next_line(int fd)
 		result[i++] = buffer[index];
 		buffer[index++] = 0;
 	}
-	buffer[index] = 0;
 	if (index < BUFFER_SIZE)
+	{	
+		buffer[index] = 0;
 		result[i++] = '\n';
+	}
 	result[i] = '\0';
 	return (result);
 }
