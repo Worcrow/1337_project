@@ -23,6 +23,8 @@ char	*ft_strjoin(char *str1, char *str2)
 	if (!res)
 	{
 		free(str2);
+		free(str1);
+		str1 = NULL;
 		str2 = NULL;
 		return (NULL);
 	}
@@ -79,11 +81,15 @@ char	*get_next_line(int fd)
 	char		*line;
 	int			i;
 
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
 	temp = malloc(BUFFER_SIZE + 1);
 	if (!temp)
+	{
+		free(buffer);
+		buffer = NULL;
 		return (NULL);
-	/**if (!buffer)
-		buffer = ft_strdup("");**/
+	}
 	i = 1;
 	while (!ft_strchr(buffer, '\n') && i)
 	{
@@ -92,9 +98,18 @@ char	*get_next_line(int fd)
 			return (free(buffer), free(temp), buffer = NULL, NULL);
 		temp[i] = '\0';
 		buffer = ft_strjoin(buffer, temp);
+		if (!buffer)
+			return (NULL);
 	}
 	free(temp);
+	temp = NULL;
 	line = get_ln(buffer);
+	if (!line)
+	{
+		free(buffer);
+		buffer = NULL;
+		return (NULL);
+	}
 	buffer = remake_buffer(buffer);
 	return (line);
 }

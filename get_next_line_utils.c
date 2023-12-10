@@ -60,8 +60,6 @@ char	*remake_buffer(char *buffer)
 	char	*res;
 
 	i = 0;
-	if (!buffer)
-		return (NULL); 
 	while (buffer[i] && buffer[i] != '\n')
 		i++;
 	if (buffer[i] == '\n')
@@ -70,7 +68,11 @@ char	*remake_buffer(char *buffer)
 		return (free(buffer), buffer = NULL, NULL);
 	res = malloc(ft_strlen(buffer) - i + 1);
 	if (!res)
+	{
+		free(buffer);
+		buffer = NULL;
 		return (NULL);
+	}
 	j = 0;
 	while (buffer[i])
 	{
